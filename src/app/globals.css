@@ -55,11 +55,11 @@
 
 /* Custom Animation Classes */
 .animate-dash-move {
-  animation: dashMove 15s linear infinite;
+  animation: dashMove 4s linear infinite;
 }
 
 .animate-dash-move-reverse {
-  animation: dashMoveReverse 20s linear infinite;
+  animation: dashMoveReverse 12s linear infinite;
 }
 
 .animate-pulse-opacity {

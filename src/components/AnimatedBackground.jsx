@@ -49,19 +49,6 @@ export default function AnimatedBackground() {
             filter: "drop-shadow(0 0 2px #2F4F4F)",
           }}
         />
-
-        {/* Circle sigil */}
-        <circle
-          cx="85%"
-          cy="70%"
-          r="50"
-          fill="none"
-          className="stroke-white animate-rotate-pulse"
-          strokeWidth="0.5"
-          style={{
-            filter: "drop-shadow(0 0 2px #2F4F4F)",
-          }}
-        />
       </svg>
     </div>
   );
