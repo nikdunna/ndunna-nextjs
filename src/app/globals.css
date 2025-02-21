@@ -2,3 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Cybersigil Animations */
+@keyframes dashMove {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes dashMoveReverse {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseOpacity {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes rotateAndPulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(47, 79, 79, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(47, 79, 79, 0.8);
+  }
+}
+
+/* Custom Animation Classes */
+.animate-dash-move {
+  animation: dashMove 15s linear infinite;
+}
+
+.animate-dash-move-reverse {
+  animation: dashMoveReverse 20s linear infinite;
+}
+
+.animate-pulse-opacity {
+  animation: pulseOpacity 4s ease-in-out infinite;
+}
+
+.animate-rotate-pulse {
+  animation: rotateAndPulse 8s linear infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Custom Utility Classes */
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(47, 79, 79, 0.5);
+}
+
