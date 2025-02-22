@@ -14,19 +14,19 @@ export default function Contact() {
               Get in Touch
             </h2>
             <p className="text-lg">
-              I'm always open to new opportunities and collaborations.
+              I'm always open to new opportunities and collaborations. Shoot me an email or connect with me on LinkedIn!
             </p>
           </div>
 
           <div className="space-y-4">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:nik.dunna@gmail.com"
               className="block text-lg hover:text-fern_green-400 transition-colors duration-300"
             >
-              📧 your.email@example.com
+              📧 nik.dunna@gmail.com
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/nikdunna"
               target="_blank"
               rel="noopener noreferrer"
               className="block text-lg hover:text-fern_green-400 transition-colors duration-300"
@@ -34,7 +34,7 @@ export default function Contact() {
               💻 GitHub
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/ndunna"
               target="_blank"
               rel="noopener noreferrer"
               className="block text-lg hover:text-fern_green-400 transition-colors duration-300"
