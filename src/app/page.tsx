@@ -1,11 +1,11 @@
 import Hero from "../components/Hero";
-import AnimatedBackground from "../components/AnimatedBackground";
+import PageWrapper from "@/components/PageWrapper";
 export default function Viewer() {
   return (
     <div className="h-screen w-screen">
-      <AnimatedBackground />
-      <Hero />
+      <PageWrapper>
+        <Hero />
+      </PageWrapper>
     </div>
-    
   );
 }
