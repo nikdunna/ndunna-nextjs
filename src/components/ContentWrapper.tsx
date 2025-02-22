@@ -39,34 +39,29 @@ export default function ContentWrapper({
     <div className="flex min-h-screen w-screen">
       <motion.div
         className="flex-1 flex flex-col justify-center mx-auto px-4 sm:px-8 md:px-24"
-        style={{ maxWidth: "896px" }}
+        style={{ maxWidth: "896px", transformOrigin: "center" }}
         animate={{
           maxWidth: isProjectOpen ? "80vw" : "896px",
           paddingRight: isProjectOpen ? "2rem" : undefined,
         }}
-        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className="relative">
           <AnimatePresence mode="wait">
             {/* Container for both cards */}
-            <div className="relative flex">
+            <div className="relative flex flex-col md:flex-row">
               {/* Main Content Card */}
               <motion.div
                 key="main-card"
                 className="relative border border-fern_green-500/20 rounded-lg md:rounded-r-none backdrop-blur-sm bg-black/20 content-card h-[70vh] flex-shrink-0"
                 initial={{ opacity: 0, y: 10, width: "100%" }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  width: isProjectOpen ? "50%" : "100%",
-                }}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                animate={{ opacity: 1, y: 0, width: "100%" }}
               >
                 {/* Card Header */}
                 <div className="absolute -top-px left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-fern_green-500/50 to-transparent" />
 
                 {/* Content Area */}
-                <div className="max-h-[70vh] md:max-h-[70vh] overflow-y-auto scrollbar-hide">
+                <div className="max-h-[70vh] md:max-h-[70vh] overflow-y-auto scrollbar-hide scroll-smooth">
                   <div className="p-8">{children}</div>
                 </div>
 
@@ -80,23 +75,16 @@ export default function ContentWrapper({
                   <motion.div
                     key="project-details"
                     className="relative border-l-0 border border-fern_green-500/20 rounded-lg rounded-l-none backdrop-blur-sm bg-black/20 content-card h-[70vh] flex-shrink-0"
-                    initial={{
-                      opacity: 0,
-                      width: 0,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      width: "50%",
-                    }}
-                    exit={{
-                      opacity: 0,
-                      width: 0,
-                    }}
+                    initial={{ opacity: 0, y: 10, width: "100%" }}
+                    animate={{ opacity: 1, y: 0, width: "100%" }}
+                    exit={{ opacity: 0, y: 10, width: "100%" }}
                     transition={{
-                      duration: 0.3,
+                      duration: 0.8,
                       ease: [0.4, 0, 0.2, 1],
                       opacity: { duration: 0.2 },
+                      staggerChildren: 0.05,
                     }}
+                    style={{ transformOrigin: "center" }}
                   >
                     {/* Card Header */}
                     <div className="absolute -top-px left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-fern_green-500/50 to-transparent" />
