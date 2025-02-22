@@ -22,37 +22,51 @@ export default function ContentWrapper({
 }) {
   const isProjectOpen = !!projectDetails;
 
+  const styles = {
+    "@media (min-width: 768px)": {
+      ".main-card": {
+        width: isProjectOpen ? "50%" : "100%",
+      },
+      ".project-details": {
+        width: "50%",
+        y: 0,
+        x: 0,
+      },
+    },
+  };
+
   return (
     <div className="flex min-h-screen w-screen">
       <motion.div
-        className="flex-1 flex flex-col justify-center mx-auto px-8 md:px-24"
+        className="flex-1 flex flex-col justify-center mx-auto px-4 sm:px-8 md:px-24"
         style={{ maxWidth: "896px" }}
         animate={{
-          maxWidth: isProjectOpen ? "1024px" : "896px",
+          maxWidth: isProjectOpen ? "80vw" : "896px",
+          paddingRight: isProjectOpen ? "2rem" : undefined,
         }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className="relative">
           <AnimatePresence mode="wait">
             {/* Container for both cards */}
-            <div className="relative">
+            <div className="relative flex">
               {/* Main Content Card */}
               <motion.div
                 key="main-card"
-                className="relative border border-fern_green-500/20 rounded-lg backdrop-blur-sm bg-black/20 content-card"
-                initial={{ opacity: 0, y: 20, width: "100%" }}
+                className="relative border border-fern_green-500/20 rounded-lg md:rounded-r-none backdrop-blur-sm bg-black/20 content-card h-[70vh] flex-shrink-0"
+                initial={{ opacity: 0, y: 10, width: "100%" }}
                 animate={{
                   opacity: 1,
                   y: 0,
                   width: isProjectOpen ? "50%" : "100%",
                 }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               >
                 {/* Card Header */}
                 <div className="absolute -top-px left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-fern_green-500/50 to-transparent" />
 
                 {/* Content Area */}
-                <div className="max-h-[70vh] overflow-y-auto scrollbar-hide">
+                <div className="max-h-[70vh] md:max-h-[70vh] overflow-y-auto scrollbar-hide">
                   <div className="p-8">{children}</div>
                 </div>
 
@@ -65,17 +79,23 @@ export default function ContentWrapper({
                 {isProjectOpen && projectDetails && (
                   <motion.div
                     key="project-details"
-                    className="absolute top-0 left-[50%] h-full border-l-0 border border-fern_green-500/20 rounded-lg rounded-l-none backdrop-blur-sm bg-black/20 content-card"
-                    initial={{ opacity: 0, width: "0%" }}
+                    className="relative border-l-0 border border-fern_green-500/20 rounded-lg rounded-l-none backdrop-blur-sm bg-black/20 content-card h-[70vh] flex-shrink-0"
+                    initial={{
+                      opacity: 0,
+                      width: 0,
+                    }}
                     animate={{
                       opacity: 1,
                       width: "50%",
                     }}
-                    exit={{ opacity: 0, width: "0%" }}
+                    exit={{
+                      opacity: 0,
+                      width: 0,
+                    }}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.3,
                       ease: [0.4, 0, 0.2, 1],
-                      opacity: { delay: 0.1 },
+                      opacity: { duration: 0.2 },
                     }}
                   >
                     {/* Card Header */}
@@ -103,8 +123,8 @@ export default function ContentWrapper({
                     </button>
 
                     {/* Project Content */}
-                    <div className="h-full max-h-[70vh] overflow-y-auto scrollbar-hide">
-                      <div className="p-8">
+                    <div className="h-full max-h-[70vh] md:max-h-[70vh] overflow-y-auto scrollbar-hide">
+                      <div className="p-4 sm:p-6 md:p-8">
                         <div className="space-y-6">
                           <motion.h2
                             className="text-3xl font-doto text-alabaster-400 animate-glow-pulse"

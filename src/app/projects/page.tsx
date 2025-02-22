@@ -82,28 +82,30 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="border border-fern_green-500/20 rounded-lg p-6 hover:border-fern_green-500/40 transition-all duration-300 cursor-pointer group"
+              className="border border-fern_green-500/20 rounded-lg hover:border-fern_green-500/40 transition-all duration-300 cursor-pointer group"
               onClick={() => handleProjectClick(project)}
             >
-              <h2 className="text-2xl font-doto text-fern_green-400 mb-3 group-hover:text-fern_green-300">
-                {project.title}
-              </h2>
-              <p className="text-alabaster-400/80 mb-4">
-                {project.shortDescription}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-sm font-doto text-alabaster-400/60 border border-alabaster-400/20 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="grid grid-rows-[auto_1fr_auto_auto] h-[250px] p-6 overflow-hidden">
+                <h2 className="text-2xl font-doto text-fern_green-400 group-hover:text-fern_green-300">
+                  {project.title}
+                </h2>
+                <p className="text-alabaster-400/80 overflow-auto">
+                  {project.shortDescription}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-sm font-doto text-alabaster-400/60 border border-alabaster-400/20 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-fern_green-400 group-hover:text-fern_green-300 transition-colors duration-300 inline-flex items-center">
+                  View Details →
+                </span>
               </div>
-              <span className="text-fern_green-400 group-hover:text-fern_green-300 transition-colors duration-300">
-                View Details →
-              </span>
             </div>
           ))}
         </div>
